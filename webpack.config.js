@@ -8,6 +8,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build"),
+    publicPath: "/",
     filename: "bundle.[chunkhash].js"
   },
   module: {
@@ -26,6 +27,9 @@ module.exports = {
         use:  [  'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   },  
   plugins: [
     new HtmlWebpackPlugin({
